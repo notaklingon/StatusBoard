@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StatusBoard.Detail"
+             Title="Detail">
+    <FlexLayout Direction="Column">
+        <!--<HorizontalStackLayout HorizontalOptions="Center">-->
+            <Image Source="dotnet_bot.png" WidthRequest="240" HeightRequest="180" />
+            <HorizontalStackLayout Margin="10,1">
+                <Label Text="Name:" FontAttributes="Bold"/>
+                <Label x:Name="labelFullName" Margin="10,0" Text="{Binding FullName}"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Margin="10,1">
+                <Label Text="Activity:" FontAttributes="Bold"/>
+                <Label x:Name="labelActivity" Margin="10,0" Text="{Binding Activity}"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Margin="10,1">
+                <Label Text="Secure Activity:" FontAttributes="Bold"/>
+                <Label x:Name="labelSecureActivity"  Margin="10,0" Text="{Binding SecureActivity}"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Margin="10,1">
+                <Label Text="Department:" FontAttributes="Bold"/>
+                <Label x:Name="labelDepartment"  Margin="10,0" Text="{Binding Department}"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Margin="10,1">
+                <Label Text="Sub Department:" FontAttributes="Bold"/>
+                <Label x:Name="labelSubDepartment"  Margin="10,0" Text="{Binding SubDepartment}"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Margin="10,1">
+                <Label Text="Phone:" FontAttributes="Bold"/>
+                <Label x:Name="labelPhone"  Margin="10,0" Text="{Binding Phone}"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Margin="10,1">
+                <Label Text="Fax:" FontAttributes="Bold"/>
+                <Label x:Name="labelFax"  Margin="10,0" Text="{Binding Fax}"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Margin="10,1">
+                <Label Text="Cell:" FontAttributes="Bold"/>
+                <Label x:Name="labelCell"  Margin="10,0" Text="{Binding Cell}"/>
+            </HorizontalStackLayout>
+        <!--</HorizontalStackLayout>-->
+    </FlexLayout>
+</ContentPage>

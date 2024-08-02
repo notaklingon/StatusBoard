@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StatusBoard.MainPage"
+             Title="Status Board">
+
+    <ScrollView Margin="1">
+        <StackLayout HorizontalOptions="FillAndExpand">
+            <HorizontalStackLayout HorizontalOptions="FillAndExpand">
+                <Picker Title="Department" x:Name="DepartmentDataPicker" HorizontalTextAlignment="Start" 
+                        VerticalOptions="Center" Margin="10,0" WidthRequest="200" SelectedIndexChanged="Picker_SelectedIndexChanged" />
+            </HorizontalStackLayout>
+
+            <ListView x:Name="DataCollectionView" RowHeight="70" SeparatorColor="Blue">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <HorizontalStackLayout Padding="1" Spacing="5">
+                                <BoxView Color="{Binding FavoriteColor}" HeightRequest="60" WidthRequest="60"/>
+                                <VerticalStackLayout VerticalOptions="Center" >
+                                    <Button Clicked="ButtonStatus_Clicked" Text="{Binding Status}" WidthRequest="45" 
+                                            MinimumHeightRequest="25" HeightRequest="25" Padding="1" HorizontalOptions="Start">
+                                        <Button.Style>
+                                            <Style TargetType="Button">
+                                                <!--<Setter Property="BackgroundColor" Value="Purple"/>-->
+                                                <Style.Triggers>
+                                                    <DataTrigger TargetType="Button" Binding="{Binding Status}" Value="Out">
+                                                        <Setter Property="BackgroundColor" Value="Red"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger TargetType="Button" Binding="{Binding Status}" Value="In">
+                                                        <Setter Property="BackgroundColor" Value="Green"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Button.Style>
+                                    </Button>
+
+                                    <Label Text="{Binding FullName}" Padding="5" WidthRequest="100" LineBreakMode="WordWrap" 
+                                           VerticalOptions="Fill" FontAttributes="Bold"/>
+
+                                </VerticalStackLayout>
+                                <VerticalStackLayout VerticalOptions="Center">
+                                    <Label Text="{Binding Department}" WidthRequest="125" LineBreakMode="TailTruncation" />
+                                    <Label Text="{Binding SubDepartment}" />
+                                </VerticalStackLayout>
+                                <Button Text="..." WidthRequest="50" CommandParameter="{Binding UserId}"
+                                    MinimumHeightRequest="25" HeightRequest="25" Padding="1" HorizontalOptions="Start">
+                                    <Button.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="Details_Tapped" NumberOfTapsRequired="1" />
+                                    </Button.GestureRecognizers>
+                                    <Button.Style>
+                                        <Style TargetType="Button">
+                                            <Setter Property="BackgroundColor" Value="CadetBlue"/>
+                                        </Style>
+                                    </Button.Style>
+                                </Button>
+                            </HorizontalStackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
